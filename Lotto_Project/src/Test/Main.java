@@ -1,15 +1,20 @@
 package Test;
 
-public class Test1 {
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Hello world");
-		System.out.println("테스트 123");
-		System.out.println("테스트 456");
-		System.out.println("테스트 566");
-		System.out.println("테스트 466");
-		System.out.println("테스트 최종 ");
-		System.out.println("테스트 최동현");
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		
+		
+	
+		Lotto_create lotto_cre = new Lotto_create();
+		lotto_cre.auto_lotto(lotto_cre.create_lotto(scanner));
 
 	}
 }

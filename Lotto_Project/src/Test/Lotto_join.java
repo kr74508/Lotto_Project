@@ -1,5 +1,7 @@
 package Test;
 
-public class Lotto_join {
 
+
+public class Lotto_join {
+	
 }
