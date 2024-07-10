@@ -12,6 +12,7 @@ public class Test1 {
 		System.out.println("테스트 이성원");
 		System.out.println("테스트 김승");
 		System.out.println("테스트 최동현");
+		System.out.println("테스트 박찬희");
 
 	}
 }
