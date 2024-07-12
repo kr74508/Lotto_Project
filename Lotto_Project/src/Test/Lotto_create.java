@@ -1,6 +1,7 @@
 package Test;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Lotto_create{
@@ -50,7 +51,49 @@ public class Lotto_create{
 	 public int[] auto_lotto(int number){
 		 this.number = number;
 		 
-		 // 진행
+		 int count = 0;
+		 boolean cheak = true;
+		 
+		 int[][] lotto = new int[number][6];
+		 int[][] temp = new int[number][6];
+	
+		 // 랜덤 값 기입.
+		
+		 for(int i = 0 ; i < number; i++) {
+			 	
+			 
+			 // 중복이 안나올때까지 반복.
+			
+				 
+			 for(int j = 0 ; j <= i; j++) {
+				 temp[i][j] = (int) (Math.random() * 45) + 1;
+				 if(temp[i][j] == temp[i][j])
+					 count++;
+				 
+			 	}
+			
+			 
+			for(int j = 0; j < 6 ; j++) {
+				lotto[i][j] = temp[j];
+			}
+		 }
+					 
+		 
+		 
+			 	
+		 
+		
+		
+			 
+			 
+			 
+		 
+			 
+		 	
+		 
+		
+		 
+		
 		 
 		return null;			 
 		 
