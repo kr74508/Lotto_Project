@@ -33,10 +33,7 @@ public class Lotto_test {
     	    	}
     	
     	
-    	
-    	
-
-	
+    	System.out.println("update");	
 			
 	
 	
