@@ -40,7 +40,8 @@ public class Lotto_join {
 
 		System.out.print("이름 : ");
 		String name = sc.next(); // 이름
-
+		
+		// 생년월일
 		int year = 0;
 		while (true) {
 			System.out.print("태어난 연도: ");
@@ -52,12 +53,28 @@ public class Lotto_join {
 				sc.next(); // 무한루프 방지
 			}
 		}
-
-		System.out.print("태어난 월 :");
-		int month = sc.nextInt();
-
-		System.out.print("태어난 일 :");
-		int day = sc.nextInt();
+		int month = 0;
+		while (true) {
+			System.out.print("태어난 월 :");
+			try {
+				month = sc.nextInt();
+				break;
+			} catch (InputMismatchException e) {
+				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
+				sc.next(); // 무한루프 방지
+			}
+		}
+		int day = 0;
+		while (true) {
+			System.out.print("태어난 일 :");
+			try {
+				day = sc.nextInt();
+				break;
+			} catch (InputMismatchException e) {
+				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
+				sc.next(); // 무한루프 방지
+			}
+		}
 
 		if (!isAdult(year, month, day)) {
 			System.out.println("[에러] 미성년자는 로또를 구매할 수 없습니다.");
@@ -73,7 +90,7 @@ public class Lotto_join {
 		System.out.println("[INFO] 회원가입이 완료 되었습니다.");
 	}
 
-	// 미셩년자 체크 *
+	// 캘린더로 미셩년자 체크 *
 	private boolean isAdult(int year, int month, int day) {
 		// TODO Auto-generated method stub
 		Calendar today = Calendar.getInstance();
