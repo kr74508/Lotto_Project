@@ -11,8 +11,8 @@ public class Lotto_join {
 		this.sc = sc_join;
 		startSignUp();
 	}
-
-	private void startSignUp() {
+  
+	private void startSignUp() { //회원가입 진행
 		System.out.println("[INFO] 안녕하세요. 동행로또입니다.");
 		System.out.println("로또 구입을 위해선 회원가입이 필요합니다.");
 		System.out.println("회원가입을 진행하시겠습니까?");
@@ -35,7 +35,7 @@ public class Lotto_join {
 		}
 	}
 
-	private void SignUp() {
+	private void SignUp() { // 정보입력
 		System.out.println("[INFO] 회원가입을 위해 아래 양식을 채워주세요\n");
 
 		System.out.print("이름 : ");
