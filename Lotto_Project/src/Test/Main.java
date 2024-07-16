@@ -14,7 +14,9 @@ public class Main {
 		
 		
 		Lotto_create lotto_cre = new Lotto_create();
-		lotto_cre.auto_lotto(lotto_cre.create_lotto(scanner));
+		lotto_cre.create_lotto(scanner);
+		lotto_cre.auto_lotto();
+		
 
 	}
 }
