@@ -48,18 +48,22 @@ public class Lotto_create {
 	}
 
 	// 자동으로 로또 번호 만들어주는 함수.
-	public int[] auto_lotto() {
-		// this.number = number;
+	public int[] auto_lotto(int number) {
+		 this.number = number;
 
 
 		int[] lotto = new int[6];
-		//int[][] temp = new int[number][6];
+		int[][] total_lotto = new int[number][6];
 		int tmp = 0;
+		int count = number - 1;
+		while(count < number) {
+		
 		// 랜덤 값 기입.
 		for (int i = 0; i < 6; i++) {
 			lotto[i] = (int) (Math.random() * 45) + 1;
 		}
 		
+		// 중복값을 다시설정해주는 검사 코드 
 		for(int i = 0; i < 6; i++) {
 			tmp = lotto[i];
 			for(int j=0; j <= i; j++) {
@@ -72,8 +76,14 @@ public class Lotto_create {
 		}
 		
 		for(int i = 0; i < 6; i++) {
-			System.out.println(lotto[i]);
+			total_lotto[count][i] = lotto[i];
 		}
+		
+		count++;
+		}
+		
+		
+		
 		return lotto;
 
 	}

@@ -14,9 +14,12 @@ public class Main {
 		
 		
 		Lotto_create lotto_cre = new Lotto_create();
-		lotto_cre.create_lotto(scanner);
-		lotto_cre.auto_lotto();
 		
+		int lotto[] = lotto_cre.auto_lotto(lotto_cre.create_lotto(scanner));
+		
+		for(int i = 0; i < 6; i++) {
+			System.out.println(lotto[i]);
+		}
 
 	}
 }
