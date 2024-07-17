@@ -24,7 +24,7 @@ public class Lotto_User { // 정보를 넘겨주기 위함
 		return year;
 	}
 
-	public int getBirthMonth() {
+	public int getMonth() {
 		return month;
 	}
 
@@ -32,7 +32,7 @@ public class Lotto_User { // 정보를 넘겨주기 위함
 		return day;
 	}
 
-	public String getPassword() {
+	public String getPwd() {
 		return pwd;
 	}
 }
