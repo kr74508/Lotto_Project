@@ -15,9 +15,18 @@ public class Main {
 		
 		Lotto_create lotto_cre = new Lotto_create();
 		
+		// 자동 수동 고르기
+		
+		// 자동인 경우		
 		int lotto[][] = lotto_cre.auto_lotto(lotto_cre.create_lotto(scanner));
+		// 수동인 경우
+		
+		// 결제 비밀번호
+		
+		// 추첨
+		
+		// 등수
 		
 		
-
 	}
 }

@@ -17,7 +17,7 @@ public class Lotto_join {
 		System.out.println("로또 구입을 위해선 회원가입이 필요합니다.");
 		System.out.println("회원가입을 진행하시겠습니까?");
 		System.out.println("[1] 예\t[2] 아니요");
-
+		// try 시작
 		for (int i = 0; i < 1; i++) {
 			System.out.print("\n입력 : ");
 			String answer = sc.next();
@@ -27,12 +27,13 @@ public class Lotto_join {
 				break;
 			} else if (answer.equals("2") || answer.equals("아니요")) {
 				System.out.println("\n[에러] 회원이 아니면 로또를 구매할 수 없습니다.");
-				System.exit(0);
+				System.exit(0); // return; 으로 변경
 			} else {
 				System.out.println("\n[에러] 잘못된 입력입니다. 다시 입력해주세요.");
 			}
 
 		}
+		// try 종료 catch 시작
 	}
 
 	private void SignUp() { // 정보입력
@@ -40,6 +41,8 @@ public class Lotto_join {
 
 		System.out.print("이름 : ");
 		String name = sc.next(); // 이름
+		// 입력된 이름 저장
+		// setName(name);
 		
 		// 생년월일
 		int year = 0;
@@ -95,6 +98,7 @@ public class Lotto_join {
 		// TODO Auto-generated method stub
 		Calendar today = Calendar.getInstance();
 		Calendar birthDate = Calendar.getInstance();
+		// 성인 구분 경계 확실하게 check
 		birthDate.set(year, month - 1, day); // 월은 0부터 시작하므로 -1
 
 		int age = today.get(Calendar.YEAR) - birthDate.get(Calendar.YEAR);

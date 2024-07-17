@@ -35,4 +35,6 @@ public class Lotto_User { // 정보를 넘겨주기 위함
 	public String getPwd() {
 		return pwd;
 	}
+	
+	// Setter methods 구현
 }

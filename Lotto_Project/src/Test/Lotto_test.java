@@ -4,7 +4,7 @@ import java.util.Scanner; // 최동현 ( 클래스, 예외처리 해야 함. 아
 import java.util.Random; // 랜덤 함수
 
 public class Lotto_test {
-    public static void main(String[] args) {
+    public static void main(String[] args) { // main 없애고, Scanner 받아오는 부분 만들기
     	Scanner sc = new Scanner(System.in);
     	Random rand = new Random(); // 랜덤 객체 생성
     	
@@ -33,10 +33,7 @@ public class Lotto_test {
     	    	}
     	
     	
-    	System.out.println("update");	
-			
-	
-	
+    	System.out.println("update");
     }
 
 }
