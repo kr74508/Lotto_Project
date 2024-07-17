@@ -2,31 +2,37 @@ package Test;
 
 public class Lotto_User { // 정보를 넘겨주기 위함
 	private String name;
-	private String id;
-	private String password;
-	private int birthYear;
+	private int year;
+	private int month;
+	private int day;
+	private String pwd;
 
-	public void User(String name, String id, String password, int birthYear) {
-        this.name = name;
-        this.id = id;
-        this.password = password;
-        this.birthYear = birthYear;
-    }
+	public void User(String name, int year, int month, int day, String pwd) {
+		this.name = name;
+		this.year = year;
+		this.month = month;
+		this.day = day;
+		this.pwd = pwd;
+	}
 
 	// Getter methods
 	public String getName() {
 		return name;
 	}
 
-	public String getId() {
-		return id;
+	public int getYear() {
+		return year;
+	}
+
+	public int getBirthMonth() {
+		return month;
+	}
+
+	public int getDay() {
+		return day;
 	}
 
 	public String getPassword() {
-		return password;
-	}
-
-	public int getBirthYear() {
-		return birthYear;
+		return pwd;
 	}
 }
