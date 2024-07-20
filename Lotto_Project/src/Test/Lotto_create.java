@@ -5,7 +5,9 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Scanner;
 
-// 김승현 로또번호 입력시 예외처리기능 만들어야함.
+// 로또 장수 입력의 기능
+// 자동, 수동의 입력 기능이 들어간 클래스
+
 public class Lotto_create {
 
 	private int number;
@@ -48,7 +50,7 @@ public class Lotto_create {
 		return 0;
 	}
 
-	// 자동으로 로또 번호 만들어주는 함수.
+	// 자동 로또 구매 함수.
 	public int[][] auto_lotto(int number) {
 		 this.number = number;
 		int[] lotto = new int[6];
@@ -78,57 +80,64 @@ public class Lotto_create {
 			}
 			count++;
 		}
+		
 		return total_lotto;
 
 	}
-	//수동 로또 구매 
+	
+	//수동 로또 구매 함수.
 	public int[][] choice_lotto(int number, Scanner sc) {
 		
-		 	this.number = number;
+		this.number = number;
 
+	 
 			int[] lotto = new int[6];
 			int[][] total_lotto = new int[number][6];
 			int tmp = 0;
-			int tmp2 = 0;
 			int count = 0;
 			
-			while(count < number) {
+			 while (count < number) {
+
+	           
+	            for (int i = 0; i < 6; i++) {
+	                boolean in_num = false;
+	                while (!in_num) {
+	                    System.out.print((count + 1) + "번째 로또의 " + (i + 1) + " 번째 로또 번호를 입력해주세요 : ");
+	                    tmp = sc.nextInt();
+
+	                    // 입력 값이 1 ~ 45 사이인지 체크
+	                    if ((tmp < 46) && (tmp > 0)) {
+	                        boolean cheak = false;
+	                        for (int j = 0; j < i; j++) {
+	                            if (lotto[j] == tmp) {
+	                            	cheak = true;
+	                                break;
+	                            }
+	                        }
+	                        if (!cheak) {
+	                            lotto[i] = tmp;
+	                            in_num = true;
+	                        } 
+	                        else 
+	                            System.out.println("값이 중복됩니다. 다른 값을 입력해주세요.");
+	                        
+	                    } 
+	                    else 
+	                        System.out.println("1 ~ 45 의 값만 입력해주세요.");
+	                    
+	                }
+	            }
+
+	            // 입력된 배열을 전체 로또 배열에 저장
+	            for (int i = 0; i < 6; i++) {
+	                total_lotto[count][i] = lotto[i];
+	            }
+
+	            count++;
+	        }
 			
 			
-			for (int i = 0; i < 6; i++) {
-				System.out.print((count+1)+"번째 로또의 "+(i+1)+" 번째 로또 번호를 입력해주세요 : ");
-				tmp = sc.nextInt();
-				if((tmp < 46) && (tmp > 0))
-					lotto[i] = sc.nextInt();
-				else {
-					System.out.print("1 ~ 45 의 값만 입력해주세요. ");
-					i--;
-					continue;
-				}
-			}
-				
-			for(int i = 0; i < 6; i++) {
-				tmp = lotto[i];
-				for(int j=0; j <= i; j++) {
-					if((i != j ) && tmp == lotto[j]) {
-						System.out.print(lotto[i]+"값이 중복입니다.");
-						tmp2 = sc.nextInt();
-						if((tmp < 46) && (tmp > 0)) 
-							lotto[i] = tmp2;						  
-						j--;
-						i--;
-						continue;
-					}
-				}
-			}
 			
-			//중복검사된 배열을 장수에 따라 다른배열로 옮김 
-			for(int i = 0; i < 6; i++) {
-				total_lotto[count][i] = lotto[i];
-			}
-			
-			count++;
-			}
 			
 		return total_lotto;
 	}
