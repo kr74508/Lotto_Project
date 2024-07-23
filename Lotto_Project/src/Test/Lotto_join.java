@@ -12,7 +12,7 @@ public class Lotto_join {
 		startSignUp();
 	}
 
-	private void startSignUp() { // 회원가입 진행
+	private boolean startSignUp() { // 회원가입 진행
 		System.out.println("[INFO] 안녕하세요. 동행로또입니다.");
 		System.out.println("로또 구입을 위해선 회원가입이 필요합니다.");
 		System.out.println("회원가입을 진행하시겠습니까?");
@@ -24,10 +24,10 @@ public class Lotto_join {
 				String answer = sc.next();
 				if (answer.equals("1") || answer.equals("예")) {
 					SignUp();
-					break;
+					return true;
 				} else if (answer.equals("2") || answer.equals("아니요")) {
 					System.out.println("\n[에러] 회원이 아니면 로또를 구매할 수 없습니다.");
-					return; // return; 으로 변경
+					return false; // return; 으로 변경
 				} else {
 					System.out.println("\n[에러] 잘못된 입력입니다. 다시 입력해주세요.");
 				}
@@ -38,6 +38,7 @@ public class Lotto_join {
 			System.out.println("\n[에러] 알 수 없는 오류가 발생했습니다.");
 			e.printStackTrace();
 		}
+		return false;
 	} // try 종료 catch 시작
 	private void SignUp() { // 정보입력
 		System.out.println("[INFO] 회원가입을 위해 아래 양식을 채워주세요\n");
@@ -55,6 +56,7 @@ public class Lotto_join {
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
+				sc.nextLine();
 			}
 		}
 		int month = 0;
@@ -65,6 +67,7 @@ public class Lotto_join {
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
+				sc.nextLine();
 			}
 		}
 		int day = 0;
@@ -75,6 +78,7 @@ public class Lotto_join {
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
+				sc.nextLine();
 			}
 		}
 		if (!isAdult(year, month, day)) {
