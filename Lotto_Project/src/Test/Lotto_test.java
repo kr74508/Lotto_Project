@@ -6,7 +6,8 @@ import java.util.Random; // 랜덤 함수
 public class Lotto_test {
 	String auto;
 	
-    public int way(Scanner sc){ // main 없애고, Scanner 받아오는 부분 만들기 -> 만들어 놓음(김승현)
+    public int way(Scanner sc){ // 이 부분 물어보기
+    	// main 없애고, Scanner 받아오는 부분 만들기 -> 만들어 놓음(김승현)
     	
     	System.out.println("추첨 방식을 선택하세요 ([1] : 자동 [2] : 수동)");
     	
@@ -19,14 +20,17 @@ public class Lotto_test {
     		e.printStackTrace();
     	}
     	
-    	if(select_lotto == 1) {
-    		
+    	if(select_lotto == 1) { 
+    		// 이 부분에 자동 로또 프로그램 실행
+    		// 로또 번호 배열에 저장해야 됨
+    	} else if (select_lotto == 2) {
+    		System.out.println("종료합니다");
+    		return;
+    	} else {
+    		System.out.println("잘못된 값을 입력했습니다.");
     	}
     	
-    	// 여기에는 select_lotto 로또를 입력받을때의 예외처리 부분 들어가야함 .
-    	// 그 외는 별거없음 이 클래스는 오직 추첨 방식을 설정하는 클래스.
     	
-    	return select_lotto;
     }
 
 }
