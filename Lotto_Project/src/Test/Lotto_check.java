@@ -24,7 +24,7 @@ public class Lotto_check {
 		System.out.println("비밀번호 3회 틀렸습니다. 시스템을 종료합니다.");
 		return false;
 	}
-	public int[] auto_lotto() {   //RANDOM 좀더 구상해 볼것 
+	public void machine_lotto(int[] number) {
 		int[] lotto = new int[6];
 		Random rand = new Random();
 		
@@ -47,6 +47,38 @@ public class Lotto_check {
             lotto[i] = randNumber;
 		}
 		Arrays.sort(lotto); // 정렬 45, 1, 5, 4.. -> 1, 4, 5, 45 ..
-		return lotto;
-	}
+	
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+        System.out.println("사용자의 로또 번호는 " + Arrays.toString(number) + " 입니다.");
+        System.out.println("당첨 번호는 " + Arrays.toString(lotto) + " 입니다.");
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+        
+        int count = 0;
+        for (int ele1 : lotto) {
+            for (int ele2 : number) {
+                if (ele1 == ele2) {
+                    count++;
+                }
+            }
+        }
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+        switch (count) {
+            case 6:
+                System.out.println("축하합니다! 1등입니다!");
+                break;
+            case 5:
+                System.out.println("축하합니다! 2등입니다!");
+                break;
+            case 4:
+                System.out.println("축하합니다! 3등입니다!");
+                break;
+            case 3:
+                System.out.println("축하합니다! 4등입니다!");
+                break;
+            default:
+                System.out.println("아쉽지만 당첨되지 않았습니다.");
+        }
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+    }
+    
 }

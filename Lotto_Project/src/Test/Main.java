@@ -46,9 +46,7 @@ public class Main {
 		
 		
 		// 결제 비밀번호
-		
 		// 추첨
-		
 		// 등수
 		
 		
