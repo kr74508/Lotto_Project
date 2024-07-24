@@ -10,9 +10,10 @@ public class Lotto_test {
     	// main 없애고, Scanner 받아오는 부분 만들기 -> 만들어 놓음(김승현)
     	
     	System.out.println("추첨 방식을 선택하세요 ([1] : 자동 [2] : 수동)");
+    	int select_lotto = 0;
     	
     	try {
-        	int select_lotto = sc.nextInt(); // select_lotto 추첨 방식
+        	select_lotto = sc.nextInt(); // select_lotto 추첨 방식
     	} catch(NullPointerException e) {
     		System.err.println("에러 : 입력 값이 Null값입니다.");
     	} catch (Exception e) {
@@ -24,12 +25,12 @@ public class Lotto_test {
     		// 이 부분에 자동 로또 프로그램 실행
     		// 로또 번호 배열에 저장해야 됨
     	} else if (select_lotto == 2) {
-    		System.out.println("종료합니다");
-    		return;
+    		
     	} else {
     		System.out.println("잘못된 값을 입력했습니다.");
+    		
     	}
-    	
+    	return select_lotto;
     	
     }
 
