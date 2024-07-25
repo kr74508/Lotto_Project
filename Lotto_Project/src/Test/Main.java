@@ -15,7 +15,7 @@ public class Main {
 		Lotto_create lotto_cre = new Lotto_create();
 		Lotto_test lotto_way = new Lotto_test();
 		Lotto_join join = new Lotto_join(scanner); // 회원가입 <- 여기 클래스 회원이 아니면 로또를 구매할수가 없으면 false 반환 하면 좋을거같은데 기본값은 true
-		
+		Lotto_check lotto_chk = new Lotto_check();
 		// 자동 수동 고르기
 		switch(lotto_way.way(scanner)){
 			// 자동인 경우.
