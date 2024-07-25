@@ -48,7 +48,8 @@ public class Lotto_check {
 		}
 		Arrays.sort(lotto); // 정렬 45, 1, 5, 4.. -> 1, 4, 5, 45 ..
 	
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
+       
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
         System.out.println("사용자의 로또 번호는 " + Arrays.toString(number) + " 입니다.");
         System.out.println("당첨 번호는 " + Arrays.toString(lotto) + " 입니다.");
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$");
