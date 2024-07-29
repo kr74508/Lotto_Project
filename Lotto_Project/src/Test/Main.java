@@ -3,6 +3,8 @@ package Test;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import lotto_project.Lotto_Result;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -15,7 +17,6 @@ public class Main {
 		Lotto_create lotto_cre = new Lotto_create();
 		Lotto_test lotto_way = new Lotto_test();
 		Lotto_join join = new Lotto_join(scanner); // 회원가입 <- 여기 클래스 회원이 아니면 로또를 구매할수가 없으면 false 반환 하면 좋을거같은데 기본값은 true
-		Lotto_check lotto_chk = new Lotto_check();
 		// 자동 수동 고르기
 		switch(lotto_way.way(scanner)){
 			// 자동인 경우.
@@ -43,9 +44,21 @@ public class Main {
 			System.out.println();
 		}
 		
-		
+	
 		
 		// 결제 비밀번호
+		Lotto_check lotto_chk = new Lotto_check();
+
+        // 비밀번호 확인
+        if (lotto_chk.password_check(scanner, Lotto_User)) {
+            int[] nums = new int[6]; // 사용자 로또 번호를 저장할 배열
+            for (int i = 0; i < number; i++) {
+                nums[i] = scanner.nextInt();
+            }
+
+            // 로또 번호 확인
+            lotto_chk.machine_lotto(nums);
+        }
 		// 추첨
 		// 등수
 		
