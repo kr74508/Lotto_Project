@@ -57,7 +57,10 @@ public class Main {
             }
 
             // 로또 번호 확인
-            lotto_chk.machine_lotto(nums);
+            for (int i = 0; i < number; i++) {
+                System.out.println((i + 1) + "번째 로또 번호 확인:");
+                lottoCheck.machine_lotto();
+            }
         }
 		// 추첨
 		// 등수
