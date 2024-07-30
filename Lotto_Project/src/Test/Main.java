@@ -50,7 +50,7 @@ public class Main {
 		Lotto_check lotto_chk = new Lotto_check();
 
         // 비밀번호 확인
-        if (lotto_chk.password_check(scanner, Lotto_User)) {
+        if (lotto_chk.password_check(scanner, number)) {
             int[] nums = new int[6]; // 사용자 로또 번호를 저장할 배열
             for (int i = 0; i < number; i++) {
                 nums[i] = scanner.nextInt();
@@ -59,7 +59,7 @@ public class Main {
             // 로또 번호 확인
             for (int i = 0; i < number; i++) {
                 System.out.println((i + 1) + "번째 로또 번호 확인:");
-                lottoCheck.machine_lotto();
+                Lotto_check.machine_lotto(number);
             }
         }
 		// 추첨
