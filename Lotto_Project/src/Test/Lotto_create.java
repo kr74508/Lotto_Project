@@ -3,7 +3,6 @@ package Test;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Scanner;
 
 // 로또 장수 입력의 기능
 // 자동, 수동의 입력 기능이 들어간 클래스
@@ -16,16 +15,7 @@ public class Lotto_create {
 	public int create_lotto(Scanner sc) {
 		System.out.print("$몇장의 로또를 구매하시겠습니까? (1장~5장 가능): ");
 		try {
-			this.number = sc.nextInt();
-			if (number < 1 || number > 5) {
-				System.out.println("$1장~5장사이의 숫자만 기입해주새요.");
-				create_lotto(sc); // 재호출
-			} else {
-				System.out.println();
-				System.out.print("$$$$$$$$$$" + number + "장을 구매 하셨습니다.!$$$$$$$$$$");
-				System.out.println();
-				return number;
-			}
+			number = sc.nextInt();
 		} catch (NullPointerException e) {
 			System.out.println();
 			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
@@ -47,18 +37,33 @@ public class Lotto_create {
 			sc.next();
 			create_lotto(sc);
 		}
-		return 0;
+		System.out.println();
+		System.out.print("$$$$$$$$$$" + number + "장을 구매 하셨습니다.!$$$$$$$$$$");
+		System.out.println();
+		// 분기 테스트
+		/*
+		if (number < 1 || number > 5) {
+			System.out.println("$1장~5장사이의 숫자만 기입해주새요.");
+			create_lotto(sc); // 재호출
+		} else {
+			System.out.println();
+			System.out.print("$$$$$$$$$$" + number + "장을 구매 하셨습니다.!$$$$$$$$$$");
+			System.out.println();
+		}
+		*/
+		return number;
 	}
 
 	// 자동 로또 구매 함수.
 	public int[][] auto_lotto(int number) {
-		 this.number = number;
+		this.number = number;
 		int[] lotto = new int[6];
-		
 		int[][] total_lotto = new int[number][6];
-		int tmp = 0;
-		int count = 0;
-		while(count < number) {
+		
+		// int tmp = 0;
+		for(int count = 0; count < number; count++) {
+			// 무한루프 버그 수정
+			/*
 			// 랜덤 값 기입.
 			for (int i = 0; i < 6; i++) {
 				lotto[i] = (int) (Math.random() * 45) + 1;
@@ -66,7 +71,7 @@ public class Lotto_create {
 			// 중복값을 다시설정해주는 검사 코드 
 			for(int i = 0; i < 6; i++) {
 				tmp = lotto[i];
-				for(int j=0; j <= i; j++) {
+				for(int j=0; j < i; j++) {
 					if((i != j ) && tmp == lotto[j]) {
 						lotto[i] = (int) (Math.random() * 45) + 1;
 						j--;
@@ -74,11 +79,31 @@ public class Lotto_create {
 					}
 				}
 			}
+			*/
+			Random rand = new Random();
+			for (int i = 0; i < 6; i++) {
+			    int randNumber;
+			    boolean duplicate;
+			
+			    do {
+			    	randNumber = rand.nextInt(45) + 1;
+			        duplicate = false;
+			
+			        // 배열에서 중복 확인
+			        for (int j = 0; j < i; j++) {
+			            if (lotto[j] == randNumber) {
+			                duplicate = true;
+			                break;
+			            }
+			        }
+			    } while (duplicate);
+			
+			    lotto[i] = randNumber;
+			}
 			//중복검사된 배열을 장수에 따라 다른배열로 옮김 
 			for(int i = 0; i < 6; i++) {
 				total_lotto[count][i] = lotto[i];
 			}
-			count++;
 		}
 		
 		return total_lotto;

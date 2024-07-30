@@ -7,12 +7,12 @@ import java.util.Scanner;
 public class Lotto_join {
 	private Scanner sc;
 
-	public Lotto_join(Scanner sc_join) {
+	public Lotto_join(Scanner sc_join, Lotto_User user) {
 		this.sc = sc_join;
-		startSignUp();
+		startSignUp(user);
 	}
 
-	private boolean startSignUp() { // 회원가입 진행
+	private boolean startSignUp(Lotto_User user) { // 회원가입 진행
 		System.out.println("[INFO] 안녕하세요. 동행로또입니다.");
 		System.out.println("로또 구입을 위해선 회원가입이 필요합니다.");
 		System.out.println("회원가입을 진행하시겠습니까?");
@@ -23,7 +23,7 @@ public class Lotto_join {
 				System.out.print("\n*입력 : ");
 				String answer = sc.next();
 				if (answer.equals("1") || answer.equals("예")) {
-					SignUp();
+					SignUp(user);
 					return true;
 				} else if (answer.equals("2") || answer.equals("아니요")) {
 					System.out.println("\n[에러] 회원이 아니면 로또를 구매할 수 없습니다.");
@@ -40,9 +40,8 @@ public class Lotto_join {
 		}
 		return false;
 	} // try 종료 catch 시작
-	private void SignUp() { // 정보입력
+	private Lotto_User SignUp(Lotto_User user) { // 정보입력
 		System.out.println("[INFO] 회원가입을 위해 아래 양식을 채워주세요\n");
-		Lotto_User user = new Lotto_User();
 		System.out.print("*이름 : ");
 		String name = sc.next(); // 이름
 		// setName(name);
@@ -53,6 +52,7 @@ public class Lotto_join {
 			System.out.print("*태어난 연도: ");
 			try {
 				year = sc.nextInt();
+				user.setYear(year);
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
@@ -64,6 +64,7 @@ public class Lotto_join {
 			System.out.print("*태어난 월 :");
 			try {
 				month = sc.nextInt();
+				user.setMonth(month);
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
@@ -75,15 +76,12 @@ public class Lotto_join {
 			System.out.print("*태어난 일 :");
 			try {
 				day = sc.nextInt();
+				user.setDay(day);
 				break;
 			} catch (InputMismatchException e) {
 				System.out.println("[에러] 잘못된 입력입니다. 숫자로 입력해주세요");
 				sc.nextLine();
 			}
-		}
-		if (!isAdult(year, month, day)) {
-			System.out.println("[에러] 미성년자는 로또를 구매할 수 없습니다.");
-			return;
 		}
 		System.out.print("*주소 : "); // 주소
 		String address = sc.next();
@@ -94,10 +92,11 @@ public class Lotto_join {
 		user.setPwd(pwd);
 
 		System.out.println("[INFO] 회원가입이 완료 되었습니다.");
+		return user;
 	}
 
 	// 캘린더로 미셩년자 체크 *
-	private boolean isAdult(int year, int month, int day) {
+	public boolean isAdult(int year, int month, int day) {
 		// TODO Auto-generated method stub
 		Calendar today = Calendar.getInstance();
 		Calendar birthDate = Calendar.getInstance();
