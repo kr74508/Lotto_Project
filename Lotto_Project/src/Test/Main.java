@@ -3,7 +3,7 @@ package Test;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import lotto_project.Lotto_Result;
+
 
 public class Main {
 
