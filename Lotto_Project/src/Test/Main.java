@@ -51,11 +51,6 @@ public class Main {
 
         // 비밀번호 확인
         if (lotto_chk.password_check(scanner, number)) {
-            int[] nums = new int[6]; // 사용자 로또 번호를 저장할 배열
-            for (int i = 0; i < number; i++) {
-                nums[i] = scanner.nextInt();
-            }
-
             // 로또 번호 확인
             for (int i = 0; i < number; i++) {
                 System.out.println((i + 1) + "번째 로또 번호 확인:");
